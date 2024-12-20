@@ -45,14 +45,14 @@ main {
 .name {
   font-size: 2.5rem;
   font-weight: 600;
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     rgba(0, 245, 160, 1),
     rgba(0, 217, 245, 1)
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
 }
 
 /* Styling for description text */
