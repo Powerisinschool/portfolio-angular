@@ -5,6 +5,7 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   private mouseEnterListener: (() => void) | null = null;
   private mouseLeaveListener: (() => void) | null = null;
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
     document.body.classList.remove('stopped');
@@ -45,7 +50,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         const tabletRect = tablet.getBoundingClientRect();
         const mouseX = event.clientX - tabletRect.left;
         const mouseY = event.clientY - tabletRect.top;
-        prompt.innerHTML = '';
+        this.renderer.addClass(prompt, 'active');
+        tablet.appendChild(cursor);
+
         cursor.classList.add('cursor');
         cursor.style.left = mouseX + 'px';
         cursor.style.top = mouseY + 'px';
@@ -61,8 +68,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         cursor.style.animation = 'pulse 1s infinite';
 
         tablet.style.cursor = 'none';
-
-        prompt.appendChild(cursor);
       }
     );
 
@@ -70,7 +75,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       tablet,
       'mouseleave',
       (event) => {
-        prompt.innerHTML = promptText;
+        this.renderer.removeClass(prompt, 'active');
+        tablet.removeChild(cursor);
         tablet.style.cursor = 'pointer';
         tablet
           .querySelectorAll('.keyword')
@@ -105,6 +111,22 @@ export class HomeComponent implements OnInit, OnDestroy {
               this.renderer.removeClass(keywordEl, 'highlighted');
             }
           });
+
+        if (mouseX > 0 && mouseX < tabletRect.width / 2) {
+          cursor.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M12.089 3.634a2 2 0 0 0 -1.089 1.78l-.001 2.586h-6.999a2 2 0 0 0 -2 2v4l.005 .15a2 2 0 0 0 1.995 1.85l6.999 -.001l.001 2.587a2 2 0 0 0 3.414 1.414l6.586 -6.586a2 2 0 0 0 0 -2.828l-6.586 -6.586a2 2 0 0 0 -2.18 -.434l-.145 .068z"></path>
+                              </svg>`;
+          cursor.style.width = '24px';
+          cursor.style.height = '24px';
+          cursor.style.backgroundColor = 'transparent';
+          cursor.style.color = '#00f5a0';
+        } else {
+          cursor.innerHTML = '';
+          cursor.style.width = '20px';
+          cursor.style.height = '20px';
+          cursor.style.backgroundColor = '#00f5a0';
+        }
+        cursor.style.transform = 'translate(-50%, -50%)';
         cursor.style.left = mouseX + 'px';
         cursor.style.top = mouseY + 'px';
       }
