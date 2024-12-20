@@ -1,0 +1,8 @@
+<section class="projects-section">
+  <div class="projects-container">
+    <app-project-card
+      *ngFor="let project of projects$ | async"
+      [project]="project"
+    ></app-project-card>
+  </div>
+</section>

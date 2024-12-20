@@ -1,1 +1,301 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* ---------------------------------------- */
+/* General Reset and Styling               */
+/* ---------------------------------------- */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------- */
+/* Variables                                */
+/* ---------------------------------------- */
+
+:root {
+  /* Colors */
+  --color-primary: #041f31;
+  --color-secondary: #bdebea;
+  --color-accent: #00f5a0;
+  --color-accent-dark: #00d9f5;
+  --color-text: #bdebea;
+  --color-text-dark: #252728;
+  --color-text-light: #d7e5ec;
+  --color-gold: #ffd700;
+
+  /* Fonts */
+  --font-family-primary: "Montserrat", sans-serif;
+  --font-family-secondary: "Tinos", serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 2.5rem;
+  --space-xxl: 3rem;
+
+  /* Border Radius */
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 15px;
+  --border-radius-round: 25px;
+  --border-radius-circle: 50%;
+
+  /* Box Shadows */
+  --box-shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --box-shadow-md: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --box-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+  --box-shadow-xl: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    90deg,
+    rgba(0, 245, 160, 1) 0%,
+    rgba(0, 217, 245, 1) 100%
+  );
+  --gradient-secondary: linear-gradient(
+    90deg,
+    rgba(0, 217, 245, 1) 0%,
+    rgba(0, 245, 160, 1) 100%
+  );
+  --gradient-background: linear-gradient(
+    45deg,
+    #041f31,
+    #0a3e5a,
+    #23d5ab,
+    #002d40,
+    #0c4b68,
+    #3ae7d9
+  );
+}
+
+/* ---------------------------------------- */
+/* Base Styles                              */
+/* ---------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-primary);
+  font-family: var(--font-family-primary);
+  font-weight: 500;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+/* ---------------------------------------- */
+/* Animation Management                     */
+/* ---------------------------------------- */
+
+.paused {
+  animation-play-state: paused !important;
+}
+
+.stopped {
+  animation: none !important;
+}
+
+/* ---------------------------------------- */
+/* Typography                               */
+/* ---------------------------------------- */
+
+h1,
+h2,
+h3 {
+  color: var(--color-accent);
+  background: -webkit-linear-gradient(
+    var(--color-accent),
+    var(--color-accent-dark)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* ---------------------------------------- */
+/* Reusable Utility Classes                 */
+/* ---------------------------------------- */
+
+.text-center {
+  text-align: center;
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-l);
+}
+
+.button {
+  display: inline-block;
+  padding: var(--space-s) var(--space-l);
+  border-radius: var(--border-radius-round);
+  background: var(--gradient-primary);
+  color: var(--color-text-dark);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow-sm);
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--gradient-secondary);
+  color: var(--color-text-light);
+  box-shadow: var(--box-shadow-md);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: var(--box-shadow-sm);
+}
+
+/* ---------------------------------------- */
+/* Larger Screen Adjustments               */
+/* ---------------------------------------- */
+
+/* Larger Screen Adjustments */
+@media screen and (min-width: 1024px) {
+  body {
+    background: var(--gradient-background);
+    background-size: 400% 400%;
+    animation: backgroundGradientAnimation 15s ease-in-out infinite;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+  }
+}
+
+/* ---------------------------------------- */
+/* Keyframe Animations                      */
+/* ---------------------------------------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-30px);
+  }
+
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes backgroundGradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  20% {
+    background-position: 50% 50%;
+  }
+
+  40% {
+    background-position: 100% 50%;
+  }
+
+  60% {
+    background-position: 75% 50%;
+  }
+
+  80% {
+    background-position: 25% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

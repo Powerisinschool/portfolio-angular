@@ -1,0 +1,14 @@
+<div class="social-share" [class.hide]="isHidden">
+  <a
+    *ngFor="let network of socialNetworks"
+    [href]="
+      network.shareUrlTemplate +
+      (network.name.toLowerCase() !== 'github' ? pageUrl : '')
+    "
+    target="_blank"
+    class="social-share-icon"
+    [attr.aria-label]="network.ariaLabel"
+    [innerHTML]="sanitizer.bypassSecurityTrustHtml(network.icon)"
+  >
+  </a>
+</div>
