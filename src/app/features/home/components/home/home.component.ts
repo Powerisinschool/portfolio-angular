@@ -49,9 +49,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         const tabletRect = tablet.getBoundingClientRect();
         const mouseX = event.clientX - tabletRect.left;
         const mouseY = event.clientY - tabletRect.top;
-        this.renderer.addClass(prompt, 'active');
         this.renderer.appendChild(tablet, cursor);
 
+        this.renderer.addClass(prompt, 'active');
         this.renderer.addClass(cursor, 'cursor');
         this.renderer.setStyle(cursor, 'left', mouseX + 'px');
         this.renderer.setStyle(cursor, 'top', mouseY + 'px');
