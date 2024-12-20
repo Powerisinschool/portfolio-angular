@@ -325,7 +325,7 @@ section.projects {
 /* Skills section container */
 section.skills {
   padding: 5em 3em;
-  background-color: #041f31; /* Optional background color for the skills section */
+  background-color: #041f31d0; /* Optional background color for the skills section */
   text-align: center;
 }
 
