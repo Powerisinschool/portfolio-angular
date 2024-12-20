@@ -19,7 +19,8 @@ main {
 
 /* Image in the split container */
 .split-container > img {
-  width: 17em;
+  width: 20em;
+  align-self: center;
 }
 
 /* Text content within the split container */
@@ -53,6 +54,7 @@ main {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: 0.02rem;
 }
 
 /* Styling for description text */
@@ -60,23 +62,22 @@ main {
   font-size: 1rem;
   font-weight: 400;
   margin: 0.25rem 0;
+  line-height: 1.75rem;
+  letter-spacing: 0.01rem;
+  max-width: 900px;
 }
 
 /* Contact button styling */
 a.contact {
   display: inline-block;
   background: rgb(0, 245, 160);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 245, 160, 1) 0%,
-    rgba(0, 217, 245, 1) 100%
-  );
-  color: #252728;
-  border-radius: 6px;
+  background: var(--gradient-primary);
+  color: var(--color-text-dark);
+  border-radius: var(--border-radius-round);
   text-decoration: none;
   width: fit-content;
   font-size: 1rem;
-  padding: 0.75rem 1.25rem;
+  padding: var(--space-s) var(--space-m);
   transition: transform 0.3s ease;
 }
 
@@ -93,26 +94,33 @@ a.contact:hover {
 section.about,
 section.projects,
 section.skills {
-  padding: 5em 3em;
+  padding: 8em 3em;
 }
 
 /* Section title styling */
 section > span.section-title {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #00f5a0;
+  font-weight: 700;
+  color: var(--color-accent);
   background: -webkit-linear-gradient(#00f5a0, #00d9f5);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+
+section > span.section-title:hover {
+  transform: translateX(10px);
 }
 
 section > span.section-title + div {
-  margin-top: 1.25em;
+  margin-top: 1.75em;
 }
 
 section.about .content {
-  margin-top: 1.25em;
+  margin-top: 1.75em;
   position: relative;
   padding: 1em 0;
 }
@@ -129,7 +137,7 @@ section.about .content {
     rgba(0, 245, 160, 1) 0%,
     rgba(0, 217, 245, 1) 100%
   );
-  left: -1em;
+  left: -1.75em;
   top: 6pt;
 }
 
@@ -488,10 +496,6 @@ section.skills .section-title {
     font-size: 2.75rem;
   }
 
-  .description {
-    line-height: 1.5rem;
-  }
-
   a.contact {
     margin-top: 1em;
   }
@@ -500,9 +504,10 @@ section.skills .section-title {
     display: block;
     position: absolute;
     left: 50%;
-    margin-top: -12em;
+    margin-top: -10em;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
+    scale: 1.5;
   }
 
   section.about,
