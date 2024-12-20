@@ -1,0 +1,61 @@
+[debug] [2024-12-20T00:39:02.587Z] ----------------------------------------------------------------------
+[debug] [2024-12-20T00:39:02.590Z] Command:       /Users/garret/.nvm/versions/node/v22.3.0/bin/node /Users/garret/Library/pnpm/global/5/node_modules/firebase-tools/lib/bin/firebase.js init hosting:github
+[debug] [2024-12-20T00:39:02.590Z] CLI Version:   13.29.1
+[debug] [2024-12-20T00:39:02.590Z] Platform:      darwin
+[debug] [2024-12-20T00:39:02.591Z] Node Version:  v22.3.0
+[debug] [2024-12-20T00:39:02.591Z] Time:          Fri Dec 20 2024 01:39:02 GMT+0100 (West Africa Standard Time)
+[debug] [2024-12-20T00:39:02.591Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-20T00:39:02.664Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-20T00:39:02.665Z] > authorizing via signed-in user (toolulopeolagunju@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/garret/Documents/Codes/portfolio-angular
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-12-20T00:39:02.668Z] Using project from CLI flag: school-portfo
+[debug] [2024-12-20T00:39:02.669Z] Checked if tokens are valid: true, expires at: 1734658366209
+[debug] [2024-12-20T00:39:02.669Z] Checked if tokens are valid: true, expires at: 1734658366209
+[debug] [2024-12-20T00:39:02.670Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/school-portfo [none]
+[debug] [2024-12-20T00:39:03.268Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/school-portfo 200
+[debug] [2024-12-20T00:39:03.268Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/school-portfo {"projectId":"school-portfo","projectNumber":"16917921059","displayName":"school-portfo","name":"projects/school-portfo","resources":{"hostingSite":"school-portfo"},"state":"ACTIVE","etag":"1_945216da-9bdb-4404-930d-4c9ffa8f24d2"}
+[info] i  Using project school-portfo (school-portfo) 
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at /Users/garret/Documents/Codes/portfolio-angular 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=793902262&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2024-12-20T00:39:06.277Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2024-12-20T00:39:06.277Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2024-12-20T00:39:07.273Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2024-12-20T00:39:07.273Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2024-12-20T00:39:07.280Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2024-12-20T00:39:19.281Z] *** [apiv2] error from fetch(https://api.github.com/user, {"headers":{},"method":"GET"}): FetchError: request to https://api.github.com/user failed, reason: getaddrinfo ENOTFOUND api.github.com
+[debug] [2024-12-20T00:39:24.290Z] Error: Timed out.
+    at Timeout._onTimeout (/Users/garret/Library/pnpm/global/5/.pnpm/firebase-tools@13.29.1_encoding@0.1.13/node_modules/firebase-tools/lib/utils.js:269:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.
