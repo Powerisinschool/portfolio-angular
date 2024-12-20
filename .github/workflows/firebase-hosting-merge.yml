@@ -23,7 +23,6 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
-      - run: pnpm i --frozen-lockfile
       - name: Build
         run: pnpm build
       - uses: FirebaseExtended/action-hosting-deploy@v0
