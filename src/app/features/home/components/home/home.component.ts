@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (!tablet) return;
 
     const prompt = tablet.querySelector('.prompt-hover') as HTMLElement;
-    const promptText: string = prompt.innerHTML;
     const cursor = document.createElement('div');
 
     this.mouseEnterListener = this.renderer.listen(
@@ -50,24 +49,24 @@ export class HomeComponent implements OnInit, OnDestroy {
         const tabletRect = tablet.getBoundingClientRect();
         const mouseX = event.clientX - tabletRect.left;
         const mouseY = event.clientY - tabletRect.top;
+        this.renderer.appendChild(tablet, cursor);
+
         this.renderer.addClass(prompt, 'active');
-        tablet.appendChild(cursor);
+        this.renderer.addClass(cursor, 'cursor');
+        this.renderer.setStyle(cursor, 'left', mouseX + 'px');
+        this.renderer.setStyle(cursor, 'top', mouseY + 'px');
+        this.renderer.setStyle(cursor, 'content', '');
+        this.renderer.setStyle(cursor, 'position', 'absolute');
+        this.renderer.setStyle(cursor, 'width', '20px');
+        this.renderer.setStyle(cursor, 'height', '20px');
+        this.renderer.setStyle(cursor, 'backgroundColor', '#00f5a0');
+        this.renderer.setStyle(cursor, 'borderRadius', '50%');
+        this.renderer.setStyle(cursor, 'transform', 'translate(-50%, -50%)');
+        this.renderer.setStyle(cursor, 'pointerEvents', 'none');
+        this.renderer.setStyle(cursor, 'zIndex', '2');
+        this.renderer.setStyle(cursor, 'animation', 'pulse 1s infinite');
 
-        cursor.classList.add('cursor');
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-        cursor.style.content = '';
-        cursor.style.position = 'absolute';
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
-        cursor.style.backgroundColor = '#00f5a0';
-        cursor.style.borderRadius = '50%';
-        cursor.style.transform = 'translate(-50%, -50%)';
-        cursor.style.pointerEvents = 'none';
-        cursor.style.zIndex = '2';
-        cursor.style.animation = 'pulse 1s infinite';
-
-        tablet.style.cursor = 'none';
+        this.renderer.setStyle(tablet, 'cursor', 'none');
       }
     );
 
@@ -76,8 +75,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       'mouseleave',
       (event) => {
         this.renderer.removeClass(prompt, 'active');
-        tablet.removeChild(cursor);
-        tablet.style.cursor = 'pointer';
+        this.renderer.removeChild(tablet, cursor);
+        this.renderer.setStyle(tablet, 'cursor', 'pointer');
         tablet
           .querySelectorAll('.keyword')
           .forEach((keywordEl: HTMLElement) => {
@@ -116,19 +115,19 @@ export class HomeComponent implements OnInit, OnDestroy {
           cursor.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
                                 <path d="M12.089 3.634a2 2 0 0 0 -1.089 1.78l-.001 2.586h-6.999a2 2 0 0 0 -2 2v4l.005 .15a2 2 0 0 0 1.995 1.85l6.999 -.001l.001 2.587a2 2 0 0 0 3.414 1.414l6.586 -6.586a2 2 0 0 0 0 -2.828l-6.586 -6.586a2 2 0 0 0 -2.18 -.434l-.145 .068z"></path>
                               </svg>`;
-          cursor.style.width = '24px';
-          cursor.style.height = '24px';
-          cursor.style.backgroundColor = 'transparent';
-          cursor.style.color = '#00f5a0';
+          this.renderer.setStyle(cursor, 'width', '24px');
+          this.renderer.setStyle(cursor, 'height', '24px');
+          this.renderer.setStyle(cursor, 'backgroundColor', 'transparent');
+          this.renderer.setStyle(cursor, 'color', '#00f5a0');
         } else {
           cursor.innerHTML = '';
-          cursor.style.width = '20px';
-          cursor.style.height = '20px';
-          cursor.style.backgroundColor = '#00f5a0';
+          this.renderer.setStyle(cursor, 'width', '20px');
+          this.renderer.setStyle(cursor, 'height', '20px');
+          this.renderer.setStyle(cursor, 'backgroundColor', '#00f5a0');
         }
-        cursor.style.transform = 'translate(-50%, -50%)';
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
+        this.renderer.setStyle(cursor, 'transform', 'translate(-50%, -50%)');
+        this.renderer.setStyle(cursor, 'left', mouseX + 'px');
+        this.renderer.setStyle(cursor, 'top', mouseY + 'px');
       }
     );
   }
