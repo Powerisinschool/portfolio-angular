@@ -3,17 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectListComponent } from './components/project-list/project-list.component';
-import { ProjectCardComponent } from './components/project-card/project-card.component';
-
+import { ProjectCardComponent } from '../../shared/components/project-card/project-card.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    ProjectListComponent,
-    ProjectCardComponent
-  ],
-  imports: [
-    CommonModule,
-    ProjectsRoutingModule
-  ]
+  declarations: [ProjectListComponent],
+  imports: [CommonModule, ProjectsRoutingModule, SharedModule],
 })
-export class ProjectsModule { }
+export class ProjectsModule {}
