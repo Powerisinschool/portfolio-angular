@@ -7,10 +7,10 @@ import { ContactComponent } from './features/contact/components/contact/contact.
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
+  // { path: 'about', component: AboutComponent },
   // { path: 'projects', component: ProjectsComponent },
-  { path: 'testimonials', component: TestimonialsComponent },
-  { path: 'contact', component: ContactComponent },
+  // { path: 'testimonials', component: TestimonialsComponent },
+  // { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: '' }, // Redirect to home for unknown routes
 ];
 
