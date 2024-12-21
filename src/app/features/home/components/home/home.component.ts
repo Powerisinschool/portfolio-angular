@@ -23,21 +23,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     observer.next([
       {
         id: 0,
-        title: 'Project One',
-        description: `A dynamic and interactive web application showcasing the ability to manage user profiles.`,
-        imageUrl:
-          'https://images.unsplash.com/photo-1722704264670-609ad35aaa53?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        projectUrl: '#',
-        tags: ['React', 'TypeScript', 'Firebase'],
+        title: 'Portfolio Website',
+        description: `A modern, responsive, and interactive portfolio website showcasing my skills as a web developer.`,
+        imageUrl: 'assets/images/project-portfolio-website.webp',
+        projectUrl: 'https://github.com/Powerisinschool/portfolio-angular',
+        tags: ['Angular', 'TypeScript', 'CSS'],
       },
       {
         id: 1,
-        title: 'Project Two',
-        description: `A comprehensive web application, showcasing a user-friendly interface for managing a blog.`,
-        imageUrl:
-          'https://images.unsplash.com/photo-1627534640397-561c6d443171',
-        projectUrl: '#',
-        tags: ['Python', 'Django', 'REST API'],
+        title: 'ImageX',
+        description: `A comprehensive API for image processing, providing a wide range of features.`,
+        imageUrl: 'assets/images/project-imagex.webp',
+        projectUrl: 'https://github.com/Powerisinschool/image-x',
+        tags: ['Gin', 'Golang', 'Docker'],
       },
     ]);
   });

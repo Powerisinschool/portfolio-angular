@@ -85,58 +85,9 @@
   </section>
 
   <section class="projects">
-    <span class="section-title">My Projects</span>
+    <span class="section-title">Featured Projects</span>
     <div class="project-cards">
-      <!-- Project 1 -->
-      <!-- <div class="project-card">
-        <div class="mask">
-          <img
-            src="https://images.unsplash.com/photo-1722704264670-609ad35aaa53?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Project 1 Image"
-            loading="lazy"
-          />
-        </div>
-        <div class="content">
-          <div class="project-text">
-            <h3 class="project-title">Project One</h3>
-            <p class="project-description">
-              A dynamic and interactive web application showcasing the ability
-              to manage user profiles.
-            </p>
-          </div>
-          <a href="#" class="project-link">View Project</a>
-        </div>
-        <div class="tags">
-          <span class="tag">React</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">REST API</span>
-        </div>
-      </div> -->
-      <!-- Project 2 -->
-      <!-- <div class="project-card">
-        <div class="mask">
-          <img
-            src="https://images.unsplash.com/photo-1627534640397-561c6d443171"
-            alt="Project 2 Image"
-            loading="lazy"
-          />
-        </div>
-        <div class="content">
-          <div class="project-text">
-            <h3 class="project-title">Project Two</h3>
-            <p class="project-description">
-              A comprehensive web application, showcasing a user-friendly
-              interface for managing a blog.
-            </p>
-          </div>
-          <a href="#" class="project-link">View Project</a>
-        </div>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Django</span>
-          <span class="tag">REST API</span>
-        </div>
-      </div> -->
+      <!-- Project Cards -->
       <app-project-card
         *ngFor="let project of projects$ | async"
         [project]="project"
