@@ -1,0 +1,17 @@
+<!-- <div class="project-card"> -->
+<div class="mask">
+  <img [src]="project?.imageUrl" alt="Project 1 Image" loading="lazy" />
+</div>
+<div class="content">
+  <div class="project-text">
+    <h3 class="project-title">{{ project?.title }}</h3>
+    <p class="project-description">
+      {{ project?.description }}
+    </p>
+  </div>
+  <a [href]="project?.projectUrl" class="project-link">View Project</a>
+</div>
+<div class="tags">
+  <span class="tag" *ngFor="let tag of project?.tags">{{ tag }}</span>
+</div>
+<!-- </div> -->

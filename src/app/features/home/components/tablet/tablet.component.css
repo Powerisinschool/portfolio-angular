@@ -58,6 +58,7 @@
   height: 150px;
   border-radius: 50%;
   margin-bottom: 1rem;
+  filter: brightness(1.1) contrast(1.2);
 }
 
 .prompt-hover > .prompt {

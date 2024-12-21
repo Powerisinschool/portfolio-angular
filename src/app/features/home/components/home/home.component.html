@@ -88,7 +88,7 @@
     <span class="section-title">My Projects</span>
     <div class="project-cards">
       <!-- Project 1 -->
-      <div class="project-card">
+      <!-- <div class="project-card">
         <div class="mask">
           <img
             src="https://images.unsplash.com/photo-1722704264670-609ad35aaa53?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -111,9 +111,9 @@
           <span class="tag">Node.js</span>
           <span class="tag">REST API</span>
         </div>
-      </div>
+      </div> -->
       <!-- Project 2 -->
-      <div class="project-card">
+      <!-- <div class="project-card">
         <div class="mask">
           <img
             src="https://images.unsplash.com/photo-1627534640397-561c6d443171"
@@ -136,7 +136,12 @@
           <span class="tag">Django</span>
           <span class="tag">REST API</span>
         </div>
-      </div>
+      </div> -->
+      <app-project-card
+        *ngFor="let project of projects$ | async"
+        [project]="project"
+        class="project-card"
+      />
       <!-- Link to More Projects -->
       <div class="more-projects">
         <a routerLink="/projects" class="view-more-link">See All Projects</a>
