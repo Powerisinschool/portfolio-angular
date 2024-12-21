@@ -1,0 +1,119 @@
+/* Individual project card styling */
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(28, 28, 28, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5em;
+  overflow: hidden;
+  width: 90%;
+  max-width: 700px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover effect for project card */
+:host:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Individual project card styling */
+.mask {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 2px solid #ffd700;
+}
+
+.mask > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Image zoom on hover */
+:host:hover .mask > img {
+  transform: scale(1.1);
+}
+
+/* Project content styling */
+:host .content {
+  padding: 2em 1.5em;
+  text-align: center;
+  align-items: center;
+}
+
+/* Project title styling */
+.project-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: #bdebea;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+/* Project description styling */
+.project-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #d7e5ec;
+  margin-bottom: 1.75em;
+  line-height: 1.6em;
+}
+
+/* Project link styling */
+.project-link {
+  height: fit-content;
+  text-decoration: none;
+  background: rgb(0, 245, 160);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 245, 160, 1) 0%,
+    rgba(0, 217, 245, 1) 100%
+  );
+  color: #252728;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  transition: background-position 0.3s ease, color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.project-link:hover {
+  background-position: 100% 50%;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Project tags styling (container) */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(189, 235, 234, 0.6);
+  border-radius: 0 0 1.5em 1.5em;
+}
+
+/* Individual Tag */
+.tag {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #bdebea;
+  background-color: rgba(0, 217, 245, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: default;
+  user-select: none;
+}
+
+/* Hover Effect on Tag */
+.tag:hover {
+  background-color: rgba(0, 245, 160, 0.2);
+  color: #ffffff;
+}
