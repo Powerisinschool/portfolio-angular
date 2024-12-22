@@ -23,6 +23,6 @@ export class AppComponent implements AfterViewInit {
       setTimeout(() => {
         this.renderer.setStyle(preloader, 'display', 'none');
       }, 500);
-    }, 4000);
+    }, 2000);
   }
 }
