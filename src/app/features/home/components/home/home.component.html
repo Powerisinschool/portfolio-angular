@@ -1,135 +1,133 @@
-<main>
-  <div class="split-container">
-    <app-home-tablet *ngIf="isWebLandscape" />
-    <img
-      *ngIf="!isWebLandscape"
-      src="assets/images/display-photo.webp"
-      alt="Display Photo"
-    />
+<div class="split-container">
+  <app-home-tablet *ngIf="isWebLandscape" />
+  <img
+    *ngIf="!isWebLandscape"
+    src="assets/images/display-photo.webp"
+    alt="Display Photo"
+  />
 
-    <div>
-      <span class="job-role">Aspiring Software Engineer</span>
-      <span class="name">Tolu Olagunju</span>
-      <span class="description">
-        Tolu Olagunju is an aspiring software engineer passionate about crafting
-        innovative web applications. With a strong focus on modern JavaScript
-        and TypeScript ecosystems, Tolu is proficient in building robust and
-        scalable applications.
-      </span>
-      <a routerLink="/contact" class="contact">Contact Me</a>
+  <div>
+    <span class="job-role">Aspiring Software Engineer</span>
+    <span class="name">Tolu Olagunju</span>
+    <span class="description">
+      Tolu Olagunju is an aspiring software engineer passionate about crafting
+      innovative web applications. With a strong focus on modern JavaScript and
+      TypeScript ecosystems, Tolu is proficient in building robust and scalable
+      applications.
+    </span>
+    <a routerLink="/contact" class="contact">Contact Me</a>
+  </div>
+</div>
+<a href="#main-content" class="down-scroll-arrow">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 32 32"
+    fill="none"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M15.9993 2C16.2645 2 16.5189 2.10536 16.7064 2.29289C16.894 2.48043 16.9993 2.73478 16.9993 3V26.586L23.2913 20.292C23.4791 20.1042 23.7338 19.9987 23.9993 19.9987C24.2649 19.9987 24.5195 20.1042 24.7073 20.292C24.8951 20.4798 25.0006 20.7344 25.0006 21C25.0006 21.2656 24.8951 21.5202 24.7073 21.708L16.7073 29.708C16.6144 29.8011 16.5041 29.875 16.3826 29.9254C16.2611 29.9758 16.1308 30.0018 15.9993 30.0018C15.8678 30.0018 15.7375 29.9758 15.616 29.9254C15.4946 29.875 15.3842 29.8011 15.2913 29.708L7.29131 21.708C7.10354 21.5202 6.99805 21.2656 6.99805 21C6.99805 20.7344 7.10354 20.4798 7.29131 20.292C7.47908 20.1042 7.73376 19.9987 7.99931 19.9987C8.26486 19.9987 8.51954 20.1042 8.70731 20.292L14.9993 26.586V3C14.9993 2.73478 15.1047 2.48043 15.2922 2.29289C15.4797 2.10536 15.7341 2 15.9993 2Z"
+      fill="currentColor"
+    />
+  </svg>
+</a>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class="shape one"
+  width="44"
+  height="44"
+  viewBox="0 0 24 24"
+  stroke-width=".5"
+  stroke="currentColor"
+  fill="none"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <path
+    d="M12 2a3 3 0 0 1 3 3c0 .562 -.259 1.442 -.776 2.64l-.724 1.36l1.76 -1.893c.499 -.6 .922 -1 1.27 -1.205a2.968 2.968 0 0 1 4.07 1.099a3.011 3.011 0 0 1 -1.09 4.098c-.374 .217 -.99 .396 -1.846 .535l-2.664 .366l2.4 .326c1 .145 1.698 .337 2.11 .576a3.011 3.011 0 0 1 1.09 4.098a2.968 2.968 0 0 1 -4.07 1.098c-.348 -.202 -.771 -.604 -1.27 -1.205l-1.76 -1.893l.724 1.36c.516 1.199 .776 2.079 .776 2.64a3 3 0 0 1 -6 0c0 -.562 .259 -1.442 .776 -2.64l.724 -1.36l-1.76 1.893c-.499 .601 -.922 1 -1.27 1.205a2.968 2.968 0 0 1 -4.07 -1.098a3.011 3.011 0 0 1 1.09 -4.098c.374 -.218 .99 -.396 1.846 -.536l2.664 -.366l-2.4 -.325c-1 -.145 -1.698 -.337 -2.11 -.576a3.011 3.011 0 0 1 -1.09 -4.099a2.968 2.968 0 0 1 4.07 -1.099c.348 .203 .771 .604 1.27 1.205l1.76 1.894c-1 -2.292 -1.5 -3.625 -1.5 -4a3 3 0 0 1 3 -3z"
+  />
+</svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class="shape three"
+  width="44"
+  height="44"
+  viewBox="0 0 24 24"
+  stroke-width=".5"
+  stroke="currentColor"
+  fill="none"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <path
+    d="M12 2a3 3 0 0 1 3 3c0 .562 -.259 1.442 -.776 2.64l-.724 1.36l1.76 -1.893c.499 -.6 .922 -1 1.27 -1.205a2.968 2.968 0 0 1 4.07 1.099a3.011 3.011 0 0 1 -1.09 4.098c-.374 .217 -.99 .396 -1.846 .535l-2.664 .366l2.4 .326c1 .145 1.698 .337 2.11 .576a3.011 3.011 0 0 1 1.09 4.098a2.968 2.968 0 0 1 -4.07 1.098c-.348 -.202 -.771 -.604 -1.27 -1.205l-1.76 -1.893l.724 1.36c.516 1.199 .776 2.079 .776 2.64a3 3 0 0 1 -6 0c0 -.562 .259 -1.442 .776 -2.64l.724 -1.36l-1.76 1.893c-.499 .601 -.922 1 -1.27 1.205a2.968 2.968 0 0 1 -4.07 -1.098a3.011 3.011 0 0 1 1.09 -4.098c.374 -.218 .99 -.396 1.846 -.536l2.664 -.366l-2.4 -.325c-1 -.145 -1.698 -.337 -2.11 -.576a3.011 3.011 0 0 1 -1.09 -4.099a2.968 2.968 0 0 1 4.07 -1.099c.348 .203 .771 .604 1.27 1.205l1.76 1.894c-1 -2.292 -1.5 -3.625 -1.5 -4a3 3 0 0 1 3 -3z"
+  />
+</svg>
+
+<section id="main-content" class="about">
+  <span class="section-title"> About me </span>
+  <div class="content">
+    <div class="decorative-line"></div>
+    <span>
+      Tolulope Olagunju is an aspiring software engineer with a passion for
+      building web applications. He is proficient in HTML, CSS, JavaScript,
+      React, Node.js, Express, and MongoDB.
+    </span>
+  </div>
+</section>
+
+<section class="projects">
+  <span class="section-title">Featured Projects</span>
+  <div class="project-cards">
+    <!-- Project Cards -->
+    <app-project-card
+      *ngFor="let project of projects$ | async"
+      [project]="project"
+      class="project-card"
+    />
+    <!-- Link to More Projects -->
+    <div class="more-projects">
+      <a routerLink="/projects" class="view-more-link">See All Projects</a>
     </div>
   </div>
-  <a href="#main-content" class="down-scroll-arrow">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 32 32"
-      fill="none"
-    >
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M15.9993 2C16.2645 2 16.5189 2.10536 16.7064 2.29289C16.894 2.48043 16.9993 2.73478 16.9993 3V26.586L23.2913 20.292C23.4791 20.1042 23.7338 19.9987 23.9993 19.9987C24.2649 19.9987 24.5195 20.1042 24.7073 20.292C24.8951 20.4798 25.0006 20.7344 25.0006 21C25.0006 21.2656 24.8951 21.5202 24.7073 21.708L16.7073 29.708C16.6144 29.8011 16.5041 29.875 16.3826 29.9254C16.2611 29.9758 16.1308 30.0018 15.9993 30.0018C15.8678 30.0018 15.7375 29.9758 15.616 29.9254C15.4946 29.875 15.3842 29.8011 15.2913 29.708L7.29131 21.708C7.10354 21.5202 6.99805 21.2656 6.99805 21C6.99805 20.7344 7.10354 20.4798 7.29131 20.292C7.47908 20.1042 7.73376 19.9987 7.99931 19.9987C8.26486 19.9987 8.51954 20.1042 8.70731 20.292L14.9993 26.586V3C14.9993 2.73478 15.1047 2.48043 15.2922 2.29289C15.4797 2.10536 15.7341 2 15.9993 2Z"
-        fill="currentColor"
-      />
-    </svg>
-  </a>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="shape one"
-    width="44"
-    height="44"
-    viewBox="0 0 24 24"
-    stroke-width=".5"
-    stroke="currentColor"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-    <path
-      d="M12 2a3 3 0 0 1 3 3c0 .562 -.259 1.442 -.776 2.64l-.724 1.36l1.76 -1.893c.499 -.6 .922 -1 1.27 -1.205a2.968 2.968 0 0 1 4.07 1.099a3.011 3.011 0 0 1 -1.09 4.098c-.374 .217 -.99 .396 -1.846 .535l-2.664 .366l2.4 .326c1 .145 1.698 .337 2.11 .576a3.011 3.011 0 0 1 1.09 4.098a2.968 2.968 0 0 1 -4.07 1.098c-.348 -.202 -.771 -.604 -1.27 -1.205l-1.76 -1.893l.724 1.36c.516 1.199 .776 2.079 .776 2.64a3 3 0 0 1 -6 0c0 -.562 .259 -1.442 .776 -2.64l.724 -1.36l-1.76 1.893c-.499 .601 -.922 1 -1.27 1.205a2.968 2.968 0 0 1 -4.07 -1.098a3.011 3.011 0 0 1 1.09 -4.098c.374 -.218 .99 -.396 1.846 -.536l2.664 -.366l-2.4 -.325c-1 -.145 -1.698 -.337 -2.11 -.576a3.011 3.011 0 0 1 -1.09 -4.099a2.968 2.968 0 0 1 4.07 -1.099c.348 .203 .771 .604 1.27 1.205l1.76 1.894c-1 -2.292 -1.5 -3.625 -1.5 -4a3 3 0 0 1 3 -3z"
-    />
-  </svg>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="shape three"
-    width="44"
-    height="44"
-    viewBox="0 0 24 24"
-    stroke-width=".5"
-    stroke="currentColor"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-    <path
-      d="M12 2a3 3 0 0 1 3 3c0 .562 -.259 1.442 -.776 2.64l-.724 1.36l1.76 -1.893c.499 -.6 .922 -1 1.27 -1.205a2.968 2.968 0 0 1 4.07 1.099a3.011 3.011 0 0 1 -1.09 4.098c-.374 .217 -.99 .396 -1.846 .535l-2.664 .366l2.4 .326c1 .145 1.698 .337 2.11 .576a3.011 3.011 0 0 1 1.09 4.098a2.968 2.968 0 0 1 -4.07 1.098c-.348 -.202 -.771 -.604 -1.27 -1.205l-1.76 -1.893l.724 1.36c.516 1.199 .776 2.079 .776 2.64a3 3 0 0 1 -6 0c0 -.562 .259 -1.442 .776 -2.64l.724 -1.36l-1.76 1.893c-.499 .601 -.922 1 -1.27 1.205a2.968 2.968 0 0 1 -4.07 -1.098a3.011 3.011 0 0 1 1.09 -4.098c.374 -.218 .99 -.396 1.846 -.536l2.664 -.366l-2.4 -.325c-1 -.145 -1.698 -.337 -2.11 -.576a3.011 3.011 0 0 1 -1.09 -4.099a2.968 2.968 0 0 1 4.07 -1.099c.348 .203 .771 .604 1.27 1.205l1.76 1.894c-1 -2.292 -1.5 -3.625 -1.5 -4a3 3 0 0 1 3 -3z"
-    />
-  </svg>
+</section>
 
-  <section id="main-content" class="about">
-    <span class="section-title"> About me </span>
-    <div class="content">
-      <div class="decorative-line"></div>
-      <span>
-        Tolulope Olagunju is an aspiring software engineer with a passion for
-        building web applications. He is proficient in HTML, CSS, JavaScript,
-        React, Node.js, Express, and MongoDB.
-      </span>
-    </div>
-  </section>
-
-  <section class="projects">
-    <span class="section-title">Featured Projects</span>
-    <div class="project-cards">
-      <!-- Project Cards -->
-      <app-project-card
-        *ngFor="let project of projects$ | async"
-        [project]="project"
-        class="project-card"
-      />
-      <!-- Link to More Projects -->
-      <div class="more-projects">
-        <a routerLink="/projects" class="view-more-link">See All Projects</a>
+<section id="skills" class="skills">
+  <span class="section-title">Skills</span>
+  <div class="skills-container">
+    <div class="skill">
+      <div class="icon-container">
+        <svg class="frontend-icon"></svg>
+      </div>
+      <h3>Frontend Development</h3>
+      <div class="progress-bar">
+        <div class="progress" style="width: 85%"></div>
       </div>
     </div>
-  </section>
-
-  <section id="skills" class="skills">
-    <span class="section-title">Skills</span>
-    <div class="skills-container">
-      <div class="skill">
-        <div class="icon-container">
-          <svg class="frontend-icon"></svg>
-        </div>
-        <h3>Frontend Development</h3>
-        <div class="progress-bar">
-          <div class="progress" style="width: 85%"></div>
-        </div>
+    <div class="skill">
+      <div class="icon-container">
+        <svg class="backend-icon"></svg>
       </div>
-      <div class="skill">
-        <div class="icon-container">
-          <svg class="backend-icon"></svg>
-        </div>
-        <h3>Backend Development</h3>
-        <div class="progress-bar">
-          <div class="progress" style="width: 75%"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="icon-container">
-          <svg class="data-science-icon"></svg>
-        </div>
-        <h3>Data Science</h3>
-        <div class="progress-bar">
-          <div class="progress" style="width: 70%"></div>
-        </div>
+      <h3>Backend Development</h3>
+      <div class="progress-bar">
+        <div class="progress" style="width: 75%"></div>
       </div>
     </div>
-  </section>
-</main>
+    <div class="skill">
+      <div class="icon-container">
+        <svg class="data-science-icon"></svg>
+      </div>
+      <h3>Data Science</h3>
+      <div class="progress-bar">
+        <div class="progress" style="width: 70%"></div>
+      </div>
+    </div>
+  </div>
+</section>
