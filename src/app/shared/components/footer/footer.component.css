@@ -39,6 +39,9 @@ footer {
   border-top: 1px solid var(--color-accent);
   margin-top: var(--space-l);
   padding-top: var(--space-s);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .footer-bottom p {
