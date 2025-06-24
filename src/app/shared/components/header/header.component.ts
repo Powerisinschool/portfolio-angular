@@ -2,14 +2,12 @@ import {
   Component,
   model, signal
 } from '@angular/core';
-import {NgForOf} from '@angular/common';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  imports: [
-    NgForOf
-  ],
+  imports: [],
   // styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
