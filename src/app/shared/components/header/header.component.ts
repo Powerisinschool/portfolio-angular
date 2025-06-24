@@ -11,10 +11,6 @@ import {
   // styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  section = model<string>('summary');
-
-  isMobileMenuOpen = signal<boolean>(false);
-
   navLinks = [
     { id: 'summary', text: 'Summary' },
     { id: 'skills', text: 'Skills' },
@@ -22,6 +18,9 @@ export class HeaderComponent {
     { id: 'projects', text: 'Projects' },
     { id: 'contact', text: 'Contact' },
   ];
+  section = model<string>(this.navLinks[0].id);
+
+  isMobileMenuOpen = signal<boolean>(false);
 
   toggleMobileMenu() {
     this.isMobileMenuOpen.update(value => !value);

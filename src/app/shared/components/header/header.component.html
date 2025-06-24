@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between h-16">
       <div class="text-xl font-bold text-gray-800">Tolulope J. Olagunju</div>
       <nav class="hidden md:flex space-x-8">
-        @for (link of navLinks; track link) {
+        @for (link of navLinks; track link.id) {
           <a
             [href]="'#' + link.id"
             (click)="onNavLinkClick($event, link.id)"
@@ -20,12 +20,13 @@
       </div>
     </div>
   </div>
-  <!--  <div [hidden]="!isMobileMenuOpen" class="md:hidden">-->
-  <!--    <a *ngFor="let link of navLinks"-->
-  <!--       [href]="'#' + link.id"-->
-  <!--       (click)="onNavLinkClick($event, link.id)"-->
-  <!--       class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200">-->
-  <!--      {{ link.text }}-->
-<!--    </a>-->
-<!--  </div>-->
+    <div [hidden]="!isMobileMenuOpen()" class="md:hidden">
+      @for (link of navLinks; track link.id) {
+        <a [href]="'#' + link.id"
+           (click)="onNavLinkClick($event, link.id)"
+           class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200">
+          {{ link.text }}
+        </a>
+      }
+  </div>
 </header>
