@@ -1,32 +1,39 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import {
+  Component,
+  model, signal
+} from '@angular/core';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
-  standalone: false,
+  imports: [
+    NgForOf
+  ],
+  // styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
-  isMobileNavOpen = false;
+export class HeaderComponent {
+  section = model<string>('summary');
 
-  toggleMobileNav() {
-    this.isMobileNavOpen = !this.isMobileNavOpen;
+  isMobileMenuOpen = signal<boolean>(false);
+
+  navLinks = [
+    { id: 'summary', text: 'Summary' },
+    { id: 'skills', text: 'Skills' },
+    { id: 'experience', text: 'Journey' },
+    { id: 'projects', text: 'Projects' },
+    { id: 'contact', text: 'Contact' },
+  ];
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen.update(value => !value);
   }
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
-
-  ngOnInit(): void {
-    this.setupScrollListener();
-  }
-
-  setupScrollListener(): void {
-    this.renderer.listen('window', 'scroll', () => {
-      const nav = this.el.nativeElement.querySelector('nav');
-      if (window.scrollY > nav.getBoundingClientRect().bottom) {
-        this.renderer.addClass(nav, 'sticky');
-      } else {
-        this.renderer.removeClass(nav, 'sticky');
-      }
-    });
+  onNavLinkClick(event: MouseEvent, sectionId: string) {
+    event.preventDefault();
+    this.section.set(sectionId);
+    if (this.isMobileMenuOpen()) {
+      this.toggleMobileMenu();
+    }
   }
 }

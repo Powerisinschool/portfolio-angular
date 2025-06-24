@@ -1,0 +1,10 @@
+<!-- Header section-->
+<app-header></app-header>
+<!-- Main content section -->
+<main #main>
+  <router-outlet />
+</main>
+<!-- Social share links at the side of the page -->
+<app-social-share></app-social-share>
+<!-- Footer section -->
+<app-footer></app-footer>

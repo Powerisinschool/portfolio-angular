@@ -9,19 +9,23 @@ import { TestimonialsModule } from './features/testimonials/testimonials.module'
 import { ContactModule } from './features/contact/contact.module';
 import { ProjectsModule } from './features/projects/projects.module';
 import { SharedModule } from './shared/shared.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HeaderComponent} from "./shared/components/header/header.component";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    HomeModule,
-    AboutModule,
-    ProjectsModule,
-    TestimonialsModule,
-    ContactModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SharedModule,
+        HomeModule,
+        AboutModule,
+        ProjectsModule,
+        TestimonialsModule,
+        ReactiveFormsModule,
+        ContactModule,
+        HeaderComponent,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

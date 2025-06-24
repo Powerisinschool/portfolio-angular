@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
 
 /* ---------------------------------------- */
 /* General Reset and Styling               */
@@ -80,6 +80,16 @@
 /* ---------------------------------------- */
 /* Base Styles                              */
 /* ---------------------------------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
 
 html {
   scroll-behavior: smooth;

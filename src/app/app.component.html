@@ -1,8 +1,17 @@
-<!-- Header section-->
-<app-header></app-header>
-<!-- Main content section -->
-<router-outlet />
-<!-- Social share links at the side of the page -->
-<app-social-share></app-social-share>
-<!-- Footer section -->
-<app-footer></app-footer>
+<!--
+  The main application component.
+  It holds all the other components together.
+-->
+<app-header [(section)]="activeSection"></app-header>
+
+<main class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <div style="height: 100vh">x</div>
+  <h2 #summary>summary section</h2>
+<!--  <app-skills id="skills"></app-skills>-->
+<!--  <app-experience id="experience"></app-experience>-->
+<!--  <app-projects id="projects"></app-projects>-->
+<!--  <app-certifications id="certifications"></app-certifications>-->
+<!--  <app-contact id="contact"></app-contact>-->
+</main>
+
+<!--<app-footer></app-footer>-->
