@@ -41,6 +41,9 @@ importers:
       animejs:
         specifier: ^4.0.2
         version: 4.0.2
+      chart.js:
+        specifier: ^4.5.0
+        version: 4.5.0
       lucide-angular:
         specifier: ^0.523.0
         version: 0.523.0(@angular/common@20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))
@@ -50,9 +53,6 @@ importers:
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
-      prettier:
-        specifier: ^3.6.0
-        version: 3.6.0
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
@@ -75,6 +75,9 @@ importers:
       '@angular/compiler-cli':
         specifier: ^20.0.4
         version: 20.0.4(@angular/compiler@20.0.4)(typescript@5.8.3)
+      '@types/animejs':
+        specifier: ^3.1.13
+        version: 3.1.13
       '@types/jasmine':
         specifier: ~5.1.8
         version: 5.1.8
@@ -96,6 +99,9 @@ importers:
       karma-jasmine-html-reporter:
         specifier: ~2.1.0
         version: 2.1.0(jasmine-core@5.4.0)(karma-jasmine@5.1.0(karma@6.4.4))(karma@6.4.4)
+      prettier:
+        specifier: ^3.6.0
+        version: 3.6.0
       typescript:
         specifier: ~5.8.3
         version: 5.8.3
@@ -1181,6 +1187,9 @@ packages:
   '@tufjs/models@3.0.1':
     resolution: {integrity: sha512-UUYHISyhCU3ZgN8yaear3cGATHb3SMuKHsQ/nVbHXcmnBf+LzQ/cQfhNG+rfaSHgqGKNEm2cOCLVLELStUQ1JA==}
     engines: {node: ^18.17.0 || >=20.5.0}
+
+  '@types/animejs@3.1.13':
+    resolution: {integrity: sha512-yWg9l1z7CAv/TKpty4/vupEh24jDGUZXv4r26StRkpUPQm04ztJaftgpto8vwdFs8SiTq6XfaPKCSI+wjzNMvQ==}
 
   '@types/cors@2.8.19':
     resolution: {integrity: sha512-mFNylyeyqN93lfe/9CSxOGREz8cpzAhH+E93xJ4xWQf62V8sQ/24reV2nyzUWM6H6Xji+GGHpkbLe7pVoUEskg==}
@@ -3809,6 +3818,8 @@ snapshots:
     dependencies:
       '@tufjs/canonical-json': 2.0.0
       minimatch: 9.0.5
+
+  '@types/animejs@3.1.13': {}
 
   '@types/cors@2.8.19':
     dependencies:

@@ -1,1 +1,28 @@
-<p>skills works!</p>
+<div class="text-center w-full max-w-4xl">
+  <div class="mb-12" appScrollAnimation [animationType]="'fade-in-left'">
+    <h2 class="text-3xl font-bold text-gray-800">Skills Dashboard</h2>
+    <p class="mt-4 text-lg text-gray-600">A visual overview of my technical and professional abilities. Click the
+      buttons to explore different skill sets.</p>
+  </div>
+  <div class="flex justify-center mb-8 space-x-2 md:space-x-4" appScrollAnimation
+       [animationType]="'fade-in-right'">
+    @for (skill of skillTypes; track skill) {
+      <button
+        class="skill-btn py-2 px-4 rounded-lg shadow cursor-pointer disabled:cursor-default"
+        [ngClass]="{'bg-gray-700 text-white': activeSkill() === skill, 'bg-white text-gray-700': activeSkill() !== skill}"
+        [attr.data-skill]="skill"
+        (click)="updateChart(skill)"
+        [disabled]="activeSkill() === skill"
+        #skillBtn>
+        {{ skill | titlecase }}
+      </button>
+    }
+  </div>
+  <div class="relative w-full max-w-3xl mx-auto h-[400px] md:h-[50vh]" appScrollAnimation
+       [animationType]="'fade-in-up'">
+    <canvas baseChart
+            [data]="barChartData"
+            [type]="barChartType"
+            [options]="barChartOptions"></canvas>
+  </div>
+</div>

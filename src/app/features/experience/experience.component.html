@@ -1,0 +1,56 @@
+<div class="text-center mb-12" appScrollAnimation animationType="fade-in-left">
+  <h2 class="text-3xl font-bold text-gray-800">My Journey</h2>
+  <p class="mt-4 text-lg text-gray-600">A timeline of my professional experience and academic achievements.</p>
+</div>
+<div class="relative max-w-3xl mx-auto">
+  <!-- Vertical Line -->
+  <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300"
+       appScrollAnimation animationType="fade-in-down"></div>
+
+  <!-- Education Item -->
+  <div class="relative mb-8">
+    <div class="flex items-center">
+      <div class="w-1/2 pr-8 text-right" appScrollAnimation animationType="fade-in-left">
+        <h3 class="text-xl font-bold text-gray-800 timeline-item-content">BSc. Computer Science</h3>
+        <p class="text-gray-600 timeline-item-content">University of London</p>
+        <time class="text-sm text-gray-500 timeline-item-content">April 2023 – Present</time>
+      </div>
+      <div class="w-1/2 pl-8" appScrollAnimation animationType="fade-in-right">
+        <div class="p-4 bg-white rounded-lg shadow-md timeline-item-content">
+          <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <li>73% average (~3.6 GPA).</li>
+            <li>Building a foundation in algorithms, software engineering, and data structures.</li>
+            <li>Developed personal portfolio website as a key academic project.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gray-700 rounded-full border-2 border-white"
+      appScrollAnimation animationType="fade-in-right" [animationDelay]="200"></div>
+  </div>
+
+  <!-- Experience Item -->
+  <div class="relative mb-8">
+    <div class="flex items-center">
+      <div class="w-1/2 pr-8" appScrollAnimation animationType="fade-in-left">
+        <div class="p-4 bg-white rounded-lg shadow-md timeline-item-content text-right">
+          <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <li>Intensive 3-day internship program.</li>
+            <li>Gained insights into industry practices.</li>
+            <li>Collaborated on simulated industry challenges.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-1/2 pl-8 text-left" appScrollAnimation animationType="fade-in-right">
+        <h3 class="text-xl font-bold text-gray-800 timeline-item-content">Internship Experience
+          Program</h3>
+        <p class="text-gray-600 timeline-item-content">Bright Network, Remote</p>
+        <time class="text-sm text-gray-500 timeline-item-content">July 2023</time>
+      </div>
+    </div>
+    <div
+      class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gray-700 rounded-full border-2 border-white"
+      appScrollAnimation animationType="fade-in-left" [animationDelay]="200"></div>
+  </div>
+</div>

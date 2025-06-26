@@ -1,11 +1,15 @@
 import {
   AfterViewInit,
   Directive,
+  effect,
   ElementRef,
+  inject,
   input,
   OnDestroy,
+  signal,
 } from '@angular/core';
 import { animate, AnimationParams } from 'animejs';
+import { AnimationStateService } from './shared/services/animation-state.service';
 
 type TAnimationType =
   | 'fade-in-left'
@@ -16,14 +20,29 @@ type TAnimationType =
 
 @Directive({
   selector: '[appScrollAnimation]',
-  // standalone: false
+  standalone: true,
 })
 export class ScrollAnimationDirective implements AfterViewInit, OnDestroy {
   private observer!: IntersectionObserver;
   animationType = input<TAnimationType>('fade-in-up');
   animationDelay = input<number>(0);
+  private animationStateService = inject(AnimationStateService);
+  private isVisible = signal(false);
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) {
+    // Set initial state to prevent FOUC
+    this.el.nativeElement.style.opacity = '0';
+
+    effect(() => {
+      if (this.isVisible() && this.animationStateService.preloaderFinished()) {
+        this.playAnimation();
+        // Disconnect the observer after the first valid animation trigger.
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    });
+  }
 
   ngAfterViewInit() {
     const options = {
@@ -35,8 +54,7 @@ export class ScrollAnimationDirective implements AfterViewInit, OnDestroy {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          this.playAnimation();
-          this.observer.unobserve(this.el.nativeElement); // Animate only once
+          this.isVisible.set(true);
         }
       });
     }, options);
@@ -70,6 +88,8 @@ export class ScrollAnimationDirective implements AfterViewInit, OnDestroy {
         animationConfig['translateY'] = [100, 0];
         animationConfig['scale'] = [0.7, 1];
         break;
+      // case '':
+      //   break;
       case 'fade-in-up':
       default:
         animationConfig['translateY'] = [50, 0];

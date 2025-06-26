@@ -2,16 +2,19 @@
   The main application component.
   It holds all the other components together.
 -->
-<app-header [(section)]="activeSection"></app-header>
+<app-preloader (animationFinished)="onPreloaderFinished()"></app-preloader>
+
+<app-header [section]="activeSection()" (sectionChange)="handleSectionChange($event)"
+            [isScrolled]="isScrolled()"></app-header>
 
 <main class="container mx-auto px-4 sm:px-6 lg:px-8">
-  <div style="height: 100vh">x</div>
-  <h2 #summary>summary section</h2>
-<!--  <app-skills id="skills"></app-skills>-->
-<!--  <app-experience id="experience"></app-experience>-->
-<!--  <app-projects id="projects"></app-projects>-->
-<!--  <app-certifications id="certifications"></app-certifications>-->
-<!--  <app-contact id="contact"></app-contact>-->
+  <!--  <div style="height: 100vh">x</div>-->
+  <app-summary #summary (viewWork)="handleSectionChange('projects')"></app-summary>
+  <app-skills #skills></app-skills>
+  <app-experience #experience></app-experience>
+  <app-projects #projects></app-projects>
+  <!--  <app-certifications #certifications></app-certifications>-->
+  <app-contact #contact></app-contact>
 </main>
 
-<!--<app-footer></app-footer>-->
+<app-footer #footer></app-footer>

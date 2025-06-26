@@ -1,82 +1,135 @@
 import {
   AfterViewInit,
   Component,
-  effect,
   ElementRef,
-  Renderer2,
-  Signal,
+  HostListener,
+  inject,
   signal,
   viewChild,
-  ViewChild
 } from '@angular/core';
-import {HeaderComponent} from './shared/components/header/header.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { SkillsComponent } from './features/skills/skills.component';
+import { SummaryComponent } from './features/summary/summary.component';
+import { ProjectsComponent } from './features/projects/projects.component';
+import { ExperienceComponent } from './features/experience/experience.component';
+import { ContactComponent } from './features/contact/contact.component';
+import { AnimationStateService } from './shared/services/animation-state.service';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
   standalone: true,
-  styleUrl: './app.component.css',
-  imports: [HeaderComponent]
+  imports: [
+    HeaderComponent,
+    SummaryComponent,
+    SkillsComponent,
+    ExperienceComponent,
+    ProjectsComponent,
+    ContactComponent,
+    FooterComponent,
+    PreloaderComponent,
+  ],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements AfterViewInit {
   title = signal('portfolio');
-  private summarySection: Signal<ElementRef<HTMLElement> | undefined> = viewChild('summary');
-  protected readonly skillsSection: Signal<ElementRef<HTMLElement> | undefined> = viewChild('skills');
-  protected readonly sections: Record<string, Signal<ElementRef<HTMLElement> | undefined>> = {
-    'summary': this.summarySection,
-    'skills': this.skillsSection,
+  private readonly animationStateService = inject(AnimationStateService);
+  isScrolled = signal(false);
+
+  private readonly summarySection = viewChild('summary', {
+    read: ElementRef,
+  });
+  private readonly skillsSection = viewChild('skills', { read: ElementRef });
+  private readonly experienceSection = viewChild('experience', {
+    read: ElementRef,
+  });
+  private readonly projectsSection = viewChild('projects', {
+    read: ElementRef,
+  });
+  private readonly contactSection = viewChild('contact', {
+    read: ElementRef,
+  });
+  private readonly footer = viewChild('footer', { read: ElementRef });
+
+  protected readonly sections = {
+    summary: this.summarySection,
+    skills: this.skillsSection,
+    experience: this.experienceSection,
+    projects: this.projectsSection,
+    contact: this.contactSection,
+  } as const;
+
+  activeSection = signal<keyof typeof this.sections>('summary');
+  private isNavigating = false;
+
+  constructor() {
+    // this.animationStateService.preloaderFinished.set(true);
   }
-  activeSection = signal<string>('summary');
-  // @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
-  // @ViewChild('main', { static: true }) mainElement!: ElementRef;
-  preloaderFinished = signal(false);
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {
-    effect(() => {
-      if (!this.preloaderFinished()) return;
+  ngAfterViewInit(): void {}
 
-      console.log('activeSection', this.activeSection());
-      const sectionElement = this.sections[this.activeSection()]?.()?.nativeElement;
-      if (sectionElement) {
-        sectionElement.scrollIntoView({behavior: 'smooth'});
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(_event: Event): void {
+    this.isScrolled.set(window.scrollY > 0);
+
+    if (this.isNavigating) {
+      return;
+    }
+
+    let currentSection: keyof typeof this.sections = 'summary';
+    const threshold = window.innerHeight * 0.4; // When top of section is 40% from viewport top
+
+    for (const sectionName of Object.keys(
+      this.sections,
+    ) as (keyof typeof this.sections)[]) {
+      const indexedSection = this.sections[sectionName]();
+      if (indexedSection) {
+        const sectionElement = indexedSection.nativeElement;
+        const rect = sectionElement.getBoundingClientRect();
+
+        if (rect.top < threshold) {
+          currentSection = sectionName;
+        }
       }
-      console.log(sectionElement);
-    });
-    this.removePreloader().then(() => {
-      this.preloaderFinished.set(true);
-    });
+    }
+
+    // Special check for the contact section when scrolling to the bottom
+    const footerEl = this.footer()?.nativeElement;
+    if (footerEl) {
+      const footerRect = footerEl.getBoundingClientRect();
+      // If the top of the footer is visible in the viewport, set 'contact' as active
+      if (footerRect.top < window.innerHeight) {
+        currentSection = 'contact';
+      }
+    }
+
+    if (this.activeSection() !== currentSection) {
+      this.activeSection.set(currentSection);
+    }
   }
 
-  ngAfterViewInit(): void {
-    // this.setupPreloader();
-    // window.addEventListener('resize', this.adjustMainPadding.bind(this));
-  }
-  removePreloader(): Promise<void> {
-    return new Promise((resolve) => {
-      const preloader = document.getElementById('preloader');
-      if (!preloader) {
-        resolve();
-        return;
-      };
+  handleSectionChange(sectionName: keyof typeof this.sections): void {
+    this.isNavigating = true;
+    this.activeSection.set(sectionName);
+    const sectionElement = this.sections[sectionName]()?.nativeElement;
+
+    console.log('Section name: ', sectionName);
+    console.log('Active section: ', this.activeSection());
+
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: 'smooth' });
 
       setTimeout(() => {
-        this.renderer.addClass(preloader, 'fade-out');
-        setTimeout(() => {
-          this.renderer.setStyle(preloader, 'display', 'none');
-
-          // Optional: Call another method after hiding the preloader.
-          // this.adjustMainPadding();
-
-          // Resolve the promise now that all actions are complete.
-          resolve();
-        }, 500);
-      }, 2000);
-    });
+        this.isNavigating = false;
+      }, 800);
+    } else {
+      this.isNavigating = false;
+    }
   }
-  //
-  // adjustMainPadding() {
-  //   console.log("I'm called here");
-  //   const navHeight = this.headerComponent.getHeight();
-  //   this.mainElement.nativeElement.style.paddingTop = `${navHeight}px`;
-  // }
+
+  onPreloaderFinished(): void {
+    this.animationStateService.preloaderFinished.set(true);
+  }
 }
