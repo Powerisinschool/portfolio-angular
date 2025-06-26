@@ -1,28 +1,34 @@
-<header>
-  <button
-    class="mobile-nav-toggle"
-    [class.active]="isMobileNavOpen"
-    (click)="toggleMobileNav()"
-    aria-controls="primary-navigation"
-    [attr.aria-expanded]="isMobileNavOpen"
-  >
-    <span></span>
-    <span></span>
-  </button>
-  <nav id="primary-navigation" [class.active]="isMobileNavOpen">
-    <a
-      routerLink="/"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      >Home</a
-    >
-    <ul>
-      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-      <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
-      <li>
-        <a routerLink="/testimonials" routerLinkActive="active">Testimonials</a>
-      </li>
-      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-    </ul>
-  </nav>
+<header class="fixed top-0 z-50 w-full" [class.shadow-md]="isScrolled()" [class.glass-effect]="isScrolled()">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <span class="text-xl font-bold text-gray-800 select-none">Tolulope Olagunju</span>
+      <nav class="hidden md:flex space-x-8">
+        @for (link of navLinks; track link.id) {
+          <a
+            [href]="'#' + link.id"
+            (click)="onNavLinkClick($event, link.id)"
+            class="nav-link text-gray-600 hover:text-gray-900"
+            [class.active]="section() === link.id || !isScrolled()">
+            {{ link.text }}
+          </a>
+        }
+      </nav>
+      <div class="md:hidden">
+        <button (click)="toggleMobileMenu()" class="text-gray-800 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div [hidden]="!isMobileMenuOpen()" class="md:hidden">
+    @for (link of navLinks; track link.id) {
+      <a [href]="'#' + link.id"
+         (click)="onNavLinkClick($event, link.id)"
+         class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200">
+        {{ link.text }}
+      </a>
+    }
+  </div>
 </header>

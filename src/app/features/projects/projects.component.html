@@ -1,0 +1,24 @@
+<div class="text-center w-full max-w-6xl">
+  <div class="mb-12 animatable" appScrollAnimation [animationType]="'fade-in-down'">
+    <h2 class="text-3xl font-bold text-gray-800">Featured Projects</h2>
+    <p class="mt-4 text-lg text-gray-600">A selection of projects that showcase my skills and passion for development.
+      Click to learn more.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @for (project of projects; track project; let i = $index) {
+      <div
+        (click)="openModal(project)"
+        class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer animatable"
+        appScrollAnimation [animationType]="'staggered-fade-in-up'" [animationDelay]="i * 100">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800">{{ project.title }}</h3>
+          <p class="mt-2 text-sm text-gray-600">{{ project.tech }}</p>
+          <button class="mt-4 text-gray-700 font-semibold hover:text-gray-900 cursor-pointer">Learn More &rarr;</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<app-project-modal [project]="selectedProject()" [isVisible]="isModalVisible()"
+                   (closeModal)="closeModal()"></app-project-modal>

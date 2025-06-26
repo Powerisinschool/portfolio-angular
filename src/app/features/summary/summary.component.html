@@ -1,0 +1,23 @@
+<div class="w-full text-center">
+  <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight" appScrollAnimation
+      animationType="fade-in-down">Fullstack Developer</h1>
+  <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-600" appScrollAnimation animationType="fade-in-up"
+     [animationDelay]="200">
+    Highly motivated Computer Science student with a strong academic foundation (73% average / ~3.6 GPA) and practical
+    experience building scalable, data-driven applications. Passionate about applying problem-solving skills to design
+    and implement innovative software solutions.
+  </p>
+  <div class="mt-8 flex justify-center space-x-4" appScrollAnimation animationType="fade-in-up" [animationDelay]="400">
+    <a href="mailto:toolulopeolagunju@gmail.com"
+       class="bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 cursor-pointer">
+      Get
+      In Touch
+    </a>
+    <button
+      (click)="viewWork.emit()"
+      class="bg-white text-gray-800 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition-colors duration-300 cursor-pointer">
+      View
+      My Work
+    </button>
+  </div>
+</div>

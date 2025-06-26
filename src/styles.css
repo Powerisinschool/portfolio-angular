@@ -1,19 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
 
 /* ---------------------------------------- */
 /* General Reset and Styling               */
 /* ---------------------------------------- */
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  border: none;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box;
-}
+/**,*/
+/**::before,*/
+/**::after {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  border: none;*/
+/*  font: inherit;*/
+/*  vertical-align: baseline;*/
+/*  box-sizing: border-box;*/
+/*}*/
 
 /* ---------------------------------------- */
 /* Variables                                */
@@ -31,8 +31,8 @@
   --color-gold: #ffd700;
 
   /* Fonts */
-  --font-family-primary: "Montserrat", sans-serif;
-  --font-family-secondary: "Tinos", serif;
+  --font-family-heading: "Montserrat", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-family-text: "Inter", ui-serif, serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -81,18 +81,74 @@
 /* Base Styles                              */
 /* ---------------------------------------- */
 
-html {
-  scroll-behavior: smooth;
-  scrollbar-color: var(--color-accent) var(--color-primary);
-  scrollbar-width: thin;
+/** {*/
+/*  box-sizing: border-box;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*}*/
+
+html, body {
+  height: 100%;
 }
 
+html {
+  scroll-behavior: smooth; /* Modern way to handle smooth scrolling */
+  scroll-padding-top: 5rem; /* Offset for fixed header (h-16) */
+  /* Changed from 'mandatory' to 'proximity' to allow for normal scrolling on non-snap sections (e.g., footer) */
+  /*scroll-snap-type: y proximity;*/
+  overflow-y: scroll;
+  /*scrollbar-color: var(--color-accent) var(--color-primary);*/
+  scrollbar-width: none;
+}
+
+/*body {*/
+/*  background-color: #f8f7f4;*/
+/*  !*background-color: var(--color-primary);*!*/
+/*  font-weight: 500;*/
+/*  color: var(--color-text);*/
+/*  transition: all 0.3s ease;*/
+/*}*/
+
 body {
-  background-color: var(--color-primary);
-  font-family: var(--font-family-primary);
-  font-weight: 500;
-  color: var(--color-text);
-  transition: all 0.3s ease;
+  font-family: var(--font-family-heading) sans-serif;
+  background-color: #f8f7f4; /* Warm Neutral Background */
+  color: #1a202c; /* Dark text */
+  margin: 0;
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading) sans-serif;
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Make each main component section a scroll snap point.
+  The 'app-section' class will be added to the host element of each section component.
+*/
+.app-section {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column; /* Allow content to flow naturally */
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem; /* Combined padding-top and padding-bottom */
+  position: relative;
+  width: 100%;
+}
+
+app-summary {
+  min-height: 100vh;
+}
+
+/* Initial states for animatable elements for IntersectionObserver animations */
+.animatable {
+  opacity: 0;
 }
 
 /* ::-webkit-scrollbar {
@@ -129,45 +185,45 @@ body {
 /* Typography                               */
 /* ---------------------------------------- */
 
-h1,
-h2,
-h3 {
-  color: var(--color-accent);
-  background: -webkit-linear-gradient(
-    var(--color-accent),
-    var(--color-accent-dark)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
-}
+/*h1,*/
+/*h2,*/
+/*h3 {*/
+/*  color: var(--color-accent);*/
+/*  !*background: -webkit-linear-gradient(*!*/
+/*  !*  var(--color-accent),*!*/
+/*  !*  var(--color-accent-dark)*!*/
+/*  !*);*!*/
+/*  !*-webkit-background-clip: text;*!*/
+/*  !*background-clip: text;*!*/
+/*  !*-webkit-text-fill-color: transparent;*!*/
+/*  font-weight: 700;*/
+/*}*/
 
-h1 {
-  font-size: 2.5rem;
-}
+/*h1 {*/
+/*  font-size: 2.5rem;*/
+/*}*/
 
-h2 {
-  font-size: 2rem;
-}
+/*h2 {*/
+/*  font-size: 2rem;*/
+/*}*/
 
-h3 {
-  font-size: 1.5rem;
-}
+/*h3 {*/
+/*  font-size: 1.5rem;*/
+/*}*/
 
-p {
-  line-height: 1.6;
-}
+/*p {*/
+/*  line-height: 1.6;*/
+/*}*/
 
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.3s ease;
-}
+/*a {*/
+/*  text-decoration: none;*/
+/*  color: inherit;*/
+/*  transition: color 0.3s ease;*/
+/*}*/
 
-a:hover {
-  color: var(--color-accent);
-}
+/*a:hover {*/
+/*  color: var(--color-accent);*/
+/*}*/
 
 /* ---------------------------------------- */
 /* Reusable Utility Classes                 */
@@ -215,85 +271,19 @@ a:hover {
 }
 
 /* ---------------------------------------- */
-/* Preloader Styles                         */
-/* ---------------------------------------- */
-
-.preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #041f31;
-  /* background: linear-gradient(
-    45deg,
-    #041f31,
-    #0a3e5a,
-    #23d5ab,
-    #002d40,
-    #0c4b68,
-    #3ae7d9
-  ); */
-  /* background-size: 400% 400%; */
-  /* animation: backgroundGradientAnimation 15s ease-in-out infinite; */
-  z-index: 10000; /* Ensure it's on top of everything */
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.preloader.fade-out {
-  opacity: 0; /* fade out effect*/
-  pointer-events: none; /*prevent click events*/
-}
-
-.loader-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em; /* add a bit of gap*/
-  color: #fff; /* white text */
-  position: relative;
-}
-
-.loader-content svg {
-  stroke: rgba(255, 215, 50, 0.7);
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  animation: spinAndFloatLoader 2s linear infinite;
-}
-
-.loading-text {
-  font-size: 1.5rem;
-  font-weight: 500; /* Semi-bold*/
-  color: var(--color-secondary); /* secondary text color from variables*/
-}
-
-span.ellipsis::after {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  text-align: left;
-  animation: dots 1.5s steps(4, end) infinite;
-}
-
-/* ---------------------------------------- */
 /* Larger Screen Adjustments               */
 /* ---------------------------------------- */
 
 /* Larger Screen Adjustments */
 @media screen and (min-width: 1024px) {
   body {
-    background: var(--gradient-background);
-    background-size: 400% 400%;
-    animation: backgroundGradientAnimation 15s ease-in-out infinite;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
+    /*background: var(--gradient-background);*/
+    /*background-size: 400% 400%;*/
+    /*!*animation: backgroundGradientAnimation 15s ease-in-out infinite;*!*/
+    /*background-attachment: fixed;*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*position: relative;*/
   }
 
   body::before {
@@ -304,7 +294,7 @@ span.ellipsis::after {
     width: 100%;
     height: 100%;
     z-index: 0;
-    background-color: rgba(0, 0, 0, 0.1);
+    /*background-color: rgba(0, 0, 0, 0.1);*/
     pointer-events: none;
   }
 
@@ -425,7 +415,7 @@ span.ellipsis::after {
 
 @keyframes backgroundGradientAnimation {
   0% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
 
   20% {
@@ -445,27 +435,27 @@ span.ellipsis::after {
   }
 
   100% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
 }
 
 @keyframes backgroundGradientAnimationMesh {
   0% {
-    background-position: 0% 0%;
+    background-position: 0 0;
     opacity: 0.5;
   }
   25% {
     background-position: 100% 100%;
   }
   50% {
-    background-position: 100% 0%;
+    background-position: 100% 0;
     opacity: 1;
   }
   75% {
-    background-position: 0% 100%;
+    background-position: 0 100%;
   }
   100% {
-    background-position: 0% 0%;
+    background-position: 0 0;
     opacity: 0.5;
   }
 }
